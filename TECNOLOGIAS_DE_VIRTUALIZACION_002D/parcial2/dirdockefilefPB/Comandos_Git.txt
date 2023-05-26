@@ -1,4 +1,11 @@
 mkdir -p ~/repos/duocuc
+sudo apt-get install git -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+git is already the newest version (1:2.34.1-1ubuntu1.9).
+git set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 20 not upgraded.
 git config --global user.name "Pedro Antor"
 git config --global user.email "pe.antor@duocuc.cl"
 git config --global alias.lg "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
@@ -18,3 +25,55 @@ ssh-add ~/.ssh/pantor
 ssh -T git@github.com
 git push --set-upstream duocuc main
 git push
+
+pantor:dirdockefilefPB >> git add Comandos_Docker.txt
+pantor:dirdockefilefPB >> git commit -m "Comandos_Docker.txt: Agregar evidencias"
+[main c57434b] Comandos_Docker.txt: Agregar evidencias
+ 1 file changed, 663 insertions(+)
+pantor:dirdockefilefPB >> git status
+On branch main
+Your branch is ahead of 'duocuc/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Comandos_Git.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+pantor:dirdockefilefPB >> git log
+commit c57434b54ee7203fcd697394df230bced27285f1 (HEAD -> main)
+Author: Pedro Antor <pe.antor@duocuc.cl>
+Date:   Thu May 25 22:33:52 2023 -0400
+
+    Comandos_Docker.txt: Agregar evidencias
+
+commit d5a960d3e739f0e7515e759a12c1988004291f3e (duocuc/main)
+Author: Pedro Antor <pe.antor@duocuc.cl>
+Date:   Thu May 25 20:53:33 2023 -0400
+
+    Comandos_Git.txt: Agregar repositorio remoto
+
+commit e9e61d3a02558297b94a3470ef1f3ce0f04973d1
+Author: Pedro Antor <pe.antor@duocuc.cl>
+Date:   Thu May 25 20:50:16 2023 -0400
+
+    Comandos_Git.txt: Comandos iniciales
+
+commit e2693742dc7750f572fe20655a2c566c55cc3c6c
+Author: Pedro Antor <pe.antor@duocuc.cl>
+Date:   Thu May 25 20:45:23 2023 -0400
+
+    Comandos_Docker.txt: Comandos iniciales
+
+commit b7a7c94d5e1b5973cd483f450674cb9af9791df6
+Author: Pedro Antor <pe.antor@duocuc.cl>
+Date:   Thu May 25 20:39:07 2023 -0400
+
+    docker-compose.yml: Configuracion inicial con bind mount
+
+commit dd10d8687d27210f830cbb45aee0d08f31bd7996
+Author: Pedro Antor <pe.antor@duocuc.cl>
+Date:   Thu May 25 20:15:12 2023 -0400
+
+    index.html: Crear sitio en construccion
