@@ -16,3 +16,5 @@ mkdir -p ~/repos/duocuc/TECNOLOGIAS_DE_VIRTUALIZACION_002D/parcial2/
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/pantor
 ssh -T git@github.com
+git push --set-upstream duocuc main
+git push
