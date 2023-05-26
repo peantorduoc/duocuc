@@ -8,3 +8,666 @@ docker ps -a
 docker kill mynginx
 docker rm mynginx
 docker logs webserver
+
+===> Acceso remoto a la maquina virtual ubuntu
+
+antor:.ssh >> ssh -i ~/.ssh/pantor-duocuc.pem ubuntu@54.211.65.96
+
+===> Instalacion de Docker
+
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt-get update
+  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  sudo docker run hello-world
+  Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+719385e32844: Pull complete
+Digest: sha256:fc6cf906cbfa013e80938cdf0bb199fbdbb86d6e3e013783e5a766f50f5dbce0
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+sudo docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+d3c3db710d23   hello-world   "/hello"   56 seconds ago   Exited (0) 55 seconds ago             kind_beaver
+
+===> Instalar docker-compose
+
+$ sudo apt install docker-compose
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  python3-docker python3-dockerpty python3-docopt python3-dotenv python3-texttable python3-websocket
+Recommended packages:
+  docker.io
+The following NEW packages will be installed:
+  docker-compose python3-docker python3-dockerpty python3-docopt python3-dotenv python3-texttable python3-websocket
+0 upgraded, 7 newly installed, 0 to remove and 20 not upgraded.
+Need to get 290 kB of archives.
+After this operation, 1545 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-websocket all 1.2.3-1 [34.7 kB]
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-docker all 5.0.3-1 [89.3 kB]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-dockerpty all 0.4.1-2 [11.1 kB]
+Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-docopt all 0.6.2-4 [26.9 kB]
+Get:5 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-dotenv all 0.19.2-1 [20.5 kB]
+Get:6 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-texttable all 1.6.4-1 [11.4 kB]
+Get:7 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 docker-compose all 1.29.2-1 [95.8 kB]
+Fetched 290 kB in 0s (5943 kB/s)
+Selecting previously unselected package python3-websocket.
+(Reading database ... 64577 files and directories currently installed.)
+Preparing to unpack .../0-python3-websocket_1.2.3-1_all.deb ...
+Unpacking python3-websocket (1.2.3-1) ...
+Selecting previously unselected package python3-docker.
+Preparing to unpack .../1-python3-docker_5.0.3-1_all.deb ...
+Unpacking python3-docker (5.0.3-1) ...
+Selecting previously unselected package python3-dockerpty.
+Preparing to unpack .../2-python3-dockerpty_0.4.1-2_all.deb ...
+Unpacking python3-dockerpty (0.4.1-2) ...
+Selecting previously unselected package python3-docopt.
+Preparing to unpack .../3-python3-docopt_0.6.2-4_all.deb ...
+Unpacking python3-docopt (0.6.2-4) ...
+Selecting previously unselected package python3-dotenv.
+Preparing to unpack .../4-python3-dotenv_0.19.2-1_all.deb ...
+Unpacking python3-dotenv (0.19.2-1) ...
+Selecting previously unselected package python3-texttable.
+Preparing to unpack .../5-python3-texttable_1.6.4-1_all.deb ...
+Unpacking python3-texttable (1.6.4-1) ...
+Selecting previously unselected package docker-compose.
+Preparing to unpack .../6-docker-compose_1.29.2-1_all.deb ...
+Unpacking docker-compose (1.29.2-1) ...
+Setting up python3-dotenv (0.19.2-1) ...
+Setting up python3-texttable (1.6.4-1) ...
+Setting up python3-docopt (0.6.2-4) ...
+Setting up python3-websocket (1.2.3-1) ...
+Setting up python3-dockerpty (0.4.1-2) ...
+Setting up python3-docker (5.0.3-1) ...
+Setting up docker-compose (1.29.2-1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+===> Agregar usuario pantor como estaba definido en el repositorio.
+
+ubuntu@ip-172-31-82-242:~$ sudo useradd -m -G sudo -s /bin/bash pantor
+ubuntu@ip-172-31-82-242:~$ sudo passwd pantor
+New password: 
+Retype new password: 
+passwd: password updated successfully
+
+ubuntu@ip-172-31-82-242:~$ sudo -i
+root@ip-172-31-82-242:~# cd /home/
+root@ip-172-31-82-242:/home# ls -l
+total 8
+drwxr-xr-x 3 root   root   4096 May 26 01:28 pantor
+drwxr-x--- 5 ubuntu ubuntu 4096 May 26 01:33 ubuntu
+
+===> Habilitar la llave publica para el usuario pantor
+
+root@ip-172-31-82-242:~# cp -r /home/ubuntu/.ssh /home/pantor/.ssh
+root@ip-172-31-82-242:/home# chown -R pantor:pantor /home/pantor/
+root@ip-172-31-82-242:/home# ls -l
+total 8
+drwxr-xr-x 3 pantor pantor 4096 May 26 01:28 pantor
+drwxr-x--- 5 ubuntu ubuntu 4096 May 26 01:33 ubuntu
+
+root@ip-172-31-82-242:~# ls -la /home/pantor/.ssh/
+total 16
+drwx------ 2 pantor pantor 4096 May 26 01:37 .
+drwxr-xr-x 4 pantor pantor 4096 May 26 01:37 ..
+-rw------- 1 pantor pantor   95 May 26 01:37 authorized_keys
+-rw-r--r-- 1 pantor pantor  142 May 26 01:37 known_hosts
+
+
+===> Acceso SSH con el usuario pantor
+
+ssh -i ~/.ssh/pantor-duocuc.pem pantor@54.211.65.96
+pantor@ip-172-31-82-242:~$ mkdir -p ~/repos/
+pantor@ip-172-31-82-242:~$ git config --global user.name "Pedro Antor"
+git config --global user.email "pe.antor@duocuc.cl"
+git config --global alias.lg "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+git config --global alias.s status --short
+git config --global init.defaultBranch
+pantor@ip-172-31-82-242:~/repos$ git clone https://github.com/peantorduoc/duocuc.git
+Cloning into 'duocuc'...
+remote: Enumerating objects: 32, done.
+remote: Counting objects: 100% (32/32), done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 32 (delta 3), reused 32 (delta 3), pack-reused 0
+Receiving objects: 100% (32/32), done.
+Resolving deltas: 100% (3/3), done.
+
+ubuntu@ip-172-31-82-242:~/repos$ ls -lR 
+.:
+total 4
+drwxrwxr-x 4 ubuntu ubuntu 4096 May 26 01:24 duocuc
+
+./duocuc:
+total 4
+drwxrwxr-x 3 ubuntu ubuntu 4096 May 26 01:24 TECNOLOGIAS_DE_VIRTUALIZACION_002D
+
+./duocuc/TECNOLOGIAS_DE_VIRTUALIZACION_002D:
+total 4
+drwxrwxr-x 4 ubuntu ubuntu 4096 May 26 01:24 parcial2
+
+./duocuc/TECNOLOGIAS_DE_VIRTUALIZACION_002D/parcial2:
+total 8
+drwxrwxr-x 2 ubuntu ubuntu 4096 May 26 01:24 dirdockefilefPB
+drwxrwxr-x 2 ubuntu ubuntu 4096 May 26 01:24 www
+
+./duocuc/TECNOLOGIAS_DE_VIRTUALIZACION_002D/parcial2/dirdockefilefPB:
+total 12
+-rw-rw-r-- 1 ubuntu ubuntu 230 May 26 01:24 Comandos_Docker.txt
+-rw-rw-r-- 1 ubuntu ubuntu 845 May 26 01:24 Comandos_Git.txt
+-rw-rw-r-- 1 ubuntu ubuntu 285 May 26 01:24 docker-compose.yml
+
+./duocuc/TECNOLOGIAS_DE_VIRTUALIZACION_002D/parcial2/www:
+total 4
+-rw-rw-r-- 1 ubuntu ubuntu 334 May 26 01:24 index.html
+
+
+===> Creando el contenedor NGINX con docker-compose
+
+pantor@ip-172-31-82-242:~/repos/duocuc/TECNOLOGIAS_DE_VIRTUALIZACION_002D/parcial2/dirdockefilefPB$ sudo docker-compose up -d
+Starting webserver ... done
+
+sudo docker ps -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                      PORTS                                   NAMES
+430e970c89a6   nginx         "/docker-entrypoint.…"   15 minutes ago   Up 43 seconds               0.0.0.0:8000->80/tcp, :::8000->80/tcp   webserver
+d3c3db710d23   hello-world   "/hello"                 27 minutes ago   Exited (0) 27 minutes ago         
+
+
+===> Usando docker inspect
+
+pantor:.ssh >> sudo docker inspect webserver
+[
+    {
+        "Id": "e965fb73516e80648311b260142e278d5807ea5eff847788dc59230e0fe428de",
+        "Created": "2023-05-26T00:36:09.472238028Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "nginx",
+            "-g",
+            "daemon off;"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 27171,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2023-05-26T00:36:10.031311286Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:f9c14fe76d502861ba0939bc3189e642c02e257f06f4c0214b1f8ca329326cda",
+        "ResolvConfPath": "/var/lib/docker/containers/e965fb73516e80648311b260142e278d5807ea5eff847788dc59230e0fe428de/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/e965fb73516e80648311b260142e278d5807ea5eff847788dc59230e0fe428de/hostname",
+        "HostsPath": "/var/lib/docker/containers/e965fb73516e80648311b260142e278d5807ea5eff847788dc59230e0fe428de/hosts",
+        "LogPath": "/var/lib/docker/containers/e965fb73516e80648311b260142e278d5807ea5eff847788dc59230e0fe428de/e965fb73516e80648311b260142e278d5807ea5eff847788dc59230e0fe428de-json.log",
+        "Name": "/webserver",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/pantor/repos/duocuc/TECNOLOGIAS_DE_VIRTUALIZACION_002D/parcial2/www/index.html:/usr/share/nginx/html/index.html:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "dirdockefilefpb_default",
+            "PortBindings": {
+                "80/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8000"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/6e467c9826961d1cde54f0aa6fd31f14d2b3a3184e702497a09e3088f7f16d2c-init/diff:/var/lib/docker/overlay2/15b9090ea5bac4c3d425a05d3b78b1f9c48ac289a941427cc139196d4160b5f0/diff:/var/lib/docker/overlay2/57e70d1570a5536954c19e81ec01ef064f18964426f84ced872ca1a6e17bb43b/diff:/var/lib/docker/overlay2/115337a89db29827df2cd9ac2eaed89d50412d169f36305797acb1cf071dde7d/diff:/var/lib/docker/overlay2/2ff12be5e2c1658070b21c77345a26035052639f99c8e3fc0590f7b1a95343a2/diff:/var/lib/docker/overlay2/77cb711eeb1b3f767ef7f86fa70005d7dc6a84438345c6f0084290cc8cf5c5ff/diff:/var/lib/docker/overlay2/c3bec5b4e805e9f6f7b5499a060607bcad60c1d49963faa7c49f4d236cdf25e1/diff",
+                "MergedDir": "/var/lib/docker/overlay2/6e467c9826961d1cde54f0aa6fd31f14d2b3a3184e702497a09e3088f7f16d2c/merged",
+                "UpperDir": "/var/lib/docker/overlay2/6e467c9826961d1cde54f0aa6fd31f14d2b3a3184e702497a09e3088f7f16d2c/diff",
+                "WorkDir": "/var/lib/docker/overlay2/6e467c9826961d1cde54f0aa6fd31f14d2b3a3184e702497a09e3088f7f16d2c/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/pantor/repos/duocuc/TECNOLOGIAS_DE_VIRTUALIZACION_002D/parcial2/www/index.html",
+                "Destination": "/usr/share/nginx/html/index.html",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "e965fb73516e",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.25.0",
+                "NJS_VERSION=0.7.12",
+                "PKG_RELEASE=1~bullseye"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "nginx",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "797dad313935e5288bbb653cf8f0ca091151bc85d75ba70d0af2a23433438df9",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:f9c14fe76d502861ba0939bc3189e642c02e257f06f4c0214b1f8ca329326cda",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "dirdockefilefpb",
+                "com.docker.compose.project.config_files": "/home/pantor/repos/duocuc/TECNOLOGIAS_DE_VIRTUALIZACION_002D/parcial2/dirdockefilefPB/docker-compose.yml", 
+                "com.docker.compose.project.working_dir": "/home/pantor/repos/duocuc/TECNOLOGIAS_DE_VIRTUALIZACION_002D/parcial2/dirdockefilefPB",
+                "com.docker.compose.service": "client",
+                "com.docker.compose.version": "2.17.3",
+                "desktop.docker.io/wsl-distro": "Ubuntu-23.04",
+                "maintainer": "NGINX Docker Maintainers \u003cdocker-maint@nginx.com\u003e"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "7de4cf32453bad41b4a9035e4347dfe0855d9d57ca7de55a293b92abdfccf762",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8000"
+                    }
+                ]
+            },
+            "SandboxKey": "/var/run/docker/netns/7de4cf32453b",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "dirdockefilefpb_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "webserver",
+                        "client",
+                        "e965fb73516e"
+                    ],
+                    "NetworkID": "8087668dd0aae0859105d96192c4ea9b634397c9c6cb3fef87dbad0bdac9ff2c",
+                    "EndpointID": "a934fcbbe9164a1fd6f2ceda98b3eae09939cebbfe62d37c2371d9325f6077f6",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:12:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ubuntu@ip-172-31-82-242:~$ mkdir -p ~/repos/duocuc
+ubuntu@ip-172-31-82-242:~$ git config --global user.name "Pedro Antor"
+ubuntu@ip-172-31-82-242:~$ git config --global user.email "pe.antor@duocuc.cl"
+ubuntu@ip-172-31-82-242:~$ git config --global alias.lg "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+ubuntu@ip-172-31-82-242:~$ git config --global alias.s status --short
+ubuntu@ip-172-31-82-242:~$ git config --global init.defaultBranch
+
+ubuntu@ip-172-31-82-242:~/repos/duocuc$ cd ..
+ubuntu@ip-172-31-82-242:~/repos$ rm -r duocuc/
+ubuntu@ip-172-31-82-242:~/repos$ git clone https://github.com/peantorduoc/duocuc.git
+Cloning into 'duocuc'...
+remote: Enumerating objects: 32, done.
+remote: Counting objects: 100% (32/32), done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 32 (delta 3), reused 32 (delta 3), pack-reused 0
+Receiving objects: 100% (32/32), done.
+Resolving deltas: 100% (3/3), done.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===> Instalando Jquery para filtrar la salida del inspector
+
+pantor:.ssh >> sudo apt-get install jq
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libjq1 libonig5
+The following NEW packages will be installed:
+  jq libjq1 libonig5
+0 upgraded, 3 newly installed, 0 to remove and 11 not upgraded.
+Need to get 353 kB of archives.
+After this operation, 1096 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu lunar/main amd64 libonig5 amd64 6.9.8-1 [168 kB]
+Get:2 http://archive.ubuntu.com/ubuntu lunar/main amd64 libjq1 amd64 1.6-2.1ubuntu3 [133 kB]
+Get:3 http://archive.ubuntu.com/ubuntu lunar/main amd64 jq amd64 1.6-2.1ubuntu3 [52.5 kB]
+Fetched 353 kB in 1s (302 kB/s)
+Selecting previously unselected package libonig5:amd64.
+(Reading database ... 38167 files and directories currently installed.)
+Preparing to unpack .../libonig5_6.9.8-1_amd64.deb ...
+Unpacking libonig5:amd64 (6.9.8-1) ...
+Selecting previously unselected package libjq1:amd64.
+Preparing to unpack .../libjq1_1.6-2.1ubuntu3_amd64.deb ...
+Unpacking libjq1:amd64 (1.6-2.1ubuntu3) ...
+Selecting previously unselected package jq.
+Preparing to unpack .../jq_1.6-2.1ubuntu3_amd64.deb ...
+Unpacking jq (1.6-2.1ubuntu3) ...
+Setting up libonig5:amd64 (6.9.8-1) ...
+Setting up libjq1:amd64 (1.6-2.1ubuntu3) ...
+Setting up jq (1.6-2.1ubuntu3) ...
+Processing triggers for man-db (2.11.2-1) ...
+Processing triggers for libc-bin (2.37-0ubuntu2) ...
+
+===> Bind mounts
+pantor:.ssh >> sudo docker inspect webserver | jq -r ".[].HostConfig.Binds[]"
+/home/pantor/repos/duocuc/TECNOLOGIAS_DE_VIRTUALIZACION_002D/parcial2/www/index.html:/usr/share/nginx/html/index.html:rw
+
+===> Network Settings
+
+pantor:.ssh >> sudo docker inspect webserver | jq -r ".[].NetworkSettings"
+{
+  "Bridge": "",
+  "SandboxID": "7de4cf32453bad41b4a9035e4347dfe0855d9d57ca7de55a293b92abdfccf762",
+  "HairpinMode": false,
+  "LinkLocalIPv6Address": "",
+  "LinkLocalIPv6PrefixLen": 0,
+  "Ports": {
+    "80/tcp": [
+      {
+        "HostIp": "0.0.0.0",
+        "HostPort": "8000"
+      }
+    ]
+  },
+  "SandboxKey": "/var/run/docker/netns/7de4cf32453b",
+  "SecondaryIPAddresses": null,
+  "SecondaryIPv6Addresses": null,
+  "EndpointID": "",
+  "Gateway": "",
+  "GlobalIPv6Address": "",
+  "GlobalIPv6PrefixLen": 0,
+  "IPAddress": "",
+  "IPPrefixLen": 0,
+  "IPv6Gateway": "",
+  "MacAddress": "",
+  "Networks": {
+    "dirdockefilefpb_default": {
+      "IPAMConfig": null,
+      "Links": null,
+      "Aliases": [
+        "webserver",
+        "client",
+        "e965fb73516e"
+      ],
+      "NetworkID": "8087668dd0aae0859105d96192c4ea9b634397c9c6cb3fef87dbad0bdac9ff2c",
+      "EndpointID": "a934fcbbe9164a1fd6f2ceda98b3eae09939cebbfe62d37c2371d9325f6077f6",
+      "Gateway": "172.18.0.1",
+      "IPAddress": "172.18.0.2",
+      "IPPrefixLen": 16,
+      "IPv6Gateway": "",
+      "GlobalIPv6Address": "",
+      "GlobalIPv6PrefixLen": 0,
+      "MacAddress": "02:42:ac:12:00:02",
+      "DriverOpts": null
+    }
+  }
+}
+
+===> Detener contenedor
+
+pantor:.ssh >> docker stop webserver 
+webserver
+pantor:.ssh >> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS                     PORTS     NAMES
+e965fb73516e   nginx     "/docker-entrypoint.…"   2 hours ago   Exited (0) 7 seconds ago             webserver
+
+===> Iniciar contenedor
+
+pantor:.ssh >> docker start webserver 
+webserver
+pantor:.ssh >> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS         PORTS                  NAMES
+e965fb73516e   nginx     "/docker-entrypoint.…"   2 hours ago   Up 4 seconds   0.0.0.0:8000->80/tcp   webserver
+
+===> Renombrar contenedor
+
+pantor:.ssh >> docker rename webserver webserver2
+pantor:.ssh >> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS          PORTS                  NAMES
+e965fb73516e   nginx     "/docker-entrypoint.…"   2 hours ago   Up 47 seconds   0.0.0.0:8000->80/tcp   webserver2
+
+===> Listar las imagenes de los contenedores
+
+pantor:.ssh >> docker image ls
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+nginx        latest    f9c14fe76d50   27 hours ago   143MB
+
+===> Viendo las estadisticas por contenedor o para todos los contenedores
+
+pantor:.ssh >> docker stats webserver2 
+CONTAINER ID   NAME         CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O   PIDS
+e965fb73516e   webserver2   0.00%     6.762MiB / 7.475GiB   0.09%     1.02kB / 0B   0B / 0B     9
+
+pantor:.ssh >> docker stats -a
+CONTAINER ID   NAME         CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O   PIDS
+e8b5400bd77e   webserver3   0.00%     6.859MiB / 7.475GiB   0.09%     946B / 0B     0B / 0B     9
+e965fb73516e   webserver2   0.00%     6.762MiB / 7.475GiB   0.09%     1.16kB / 0B   0B / 0B     9
+
+===>  Eliminar un contenedor
+
+pantor:.ssh >> docker kill webserver3
+webserver3
+pantor:.ssh >> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS                       PORTS                  NAMES
+e8b5400bd77e   nginx     "/docker-entrypoint.…"   About a minute ago   Exited (137) 6 seconds ago                          webserver3
+e965fb73516e   nginx     "/docker-entrypoint.…"   2 hours ago          Up 5 minutes                 0.0.0.0:8000->80/tcp   webserver2
+
+pantor:.ssh >> docker rm webserver3
+webserver3
+pantor:.ssh >> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS          PORTS                  NAMES
+e965fb73516e   nginx     "/docker-entrypoint.…"   2 hours ago   Up 21 minutes   0.0.0.0:8000->80/tcp   webserver2
+
+
+
+
