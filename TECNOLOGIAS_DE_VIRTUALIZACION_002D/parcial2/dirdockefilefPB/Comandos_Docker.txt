@@ -1,0 +1,10 @@
+docker pull nginx:latest
+docker image ls
+docker run --name mynginx -d -p 8000:80 nginx
+docker exec -it mynginx bash
+docker-compose up -d
+docker ps
+docker ps -a
+docker kill mynginx
+docker rm mynginx
+docker logs webserver
